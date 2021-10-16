@@ -1,6 +1,5 @@
-package com.hfad.weatherapp;
+package com.krupnov.weatherapp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.hfad.weatherapp;
+package com.krupnov.weatherapp;
 
 import android.content.Context;
 
