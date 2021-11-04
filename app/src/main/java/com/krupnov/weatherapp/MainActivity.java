@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }
 //        View view2 = this.getCurrentFocus();
         if (view != null) {                                //для того чтобы при нажатии на кнопку убиралась клавиатура
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
 
@@ -114,16 +114,20 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            try {
-                JSONObject jsonObject = new JSONObject(s);
-                String city =jsonObject.getString("name");
-                String temp = jsonObject.getJSONObject("main").getString("temp");
-                String description = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
-                weather = String.format("%s\nТемпература: %s °C\nНа улице: %s", city, temp, description);
-                textViewWeather.setText(weather);
+            if (s == null) {
+                textViewWeather.setText("Ошибка");
+            } else {
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    String city =jsonObject.getString("name");
+                    String temp = jsonObject.getJSONObject("main").getString("temp");
+                    String description = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
+                    weather = String.format("%s\nТемпература: %s °C\nНа улице: %s", city, temp, description);
+                    textViewWeather.setText(weather);
 
-            } catch (JSONException e) {
-                e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
