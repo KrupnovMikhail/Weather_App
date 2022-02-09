@@ -1,4 +1,4 @@
-# Weather App 1 ур
+# Weather App
 
 - Weather forecast app
 
