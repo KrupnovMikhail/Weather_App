@@ -2,4 +2,4 @@
 
 - Weather forecast app
 
-![Screenshot](assets/Screenshot.png)
+<img src = "assets/Screenshot.png" width = "400">
